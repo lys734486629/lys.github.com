@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
+    <link rel="stylesheet" type="text/css" href="stylesheets/sliderbanner.css" media="screen">
     <title>Lys.github.com by lys734486629</title>
   </head>
 
@@ -31,12 +31,48 @@
         <h3>
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<!--<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>-->
 
-<pre><code>$ cd your_repo_root/repo_name
+<!--<pre><code>$ cd your_repo_root/repo_name
 $ git fetch origin
 $ git checkout gh-pages
-</code></pre>
+</code></pre>-->
+
+<div class="banner has-dots">
+			<ul>
+				<li style="background-image: url('images/examlogin.jpg');">
+					<div class="inner">
+		
+						
+
+					</div>
+				</li>
+
+				<li style="background-image: url('images/examindex.jpg');">
+					<div class="inner">
+						
+
+						
+					</div>
+				</li>
+
+				<li style="background-image: url('images/School_login.jpg');">
+					<div class="inner">
+						
+
+						
+					</div>
+				</li>
+
+				<li style="background-image: url('images/School_index.jpg');">
+					<div class="inner">
+					
+
+						
+					</div>
+				</li>
+			</ul>
+		</div>
 
 <p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
@@ -62,6 +98,47 @@ $ git checkout gh-pages
       </section>
     </div>
 
-    
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+		<script src="./jquery.event.move.js"></script>
+		<script src="./jquery.event.swipe.js"></script>
+
+		<script src="javascripts/unslider.min.js"></script>
+		<script>
+			if(window.chrome) {
+				$('.banner li').css('background-size', '100% 100%');
+			}
+
+			$('.banner').unslider({
+				arrows: true,
+				fluid: true,
+				dots: true
+			});
+
+			//  Find any element starting with a # in the URL
+			//  And listen to any click events it fires
+			$('a[href^="#"]').click(function() {
+				//  Find the target element
+				var target = $($(this).attr('href'));
+
+				//  And get its position
+				var pos = target.offset(); // fallback to scrolling to top || {left: 0, top: 0};
+
+				//  jQuery will return false if there's no element
+				//  and your code will throw errors if it tries to do .offset().left;
+				if(pos) {
+					//  Scroll the page
+					$('html, body').animate({
+						scrollTop: pos.top,
+						scrollLeft: pos.left
+					}, 1000);
+				}
+
+				//  Don't let them visit the url, we'll scroll you there
+				return false;
+			});
+
+			
+		</script>
   </body>
 </html>
