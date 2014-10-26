@@ -3,18 +3,19 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <link rel="stylesheet" type="text/css" href="stylesheets/sliderbanner.css" media="screen">
+    <link href="stylesheets/stickup.css" rel="stylesheet">
     <title>Lys.github.com by lys734486629</title>
   </head>
 
   <body>
 
     <header>
-      <div class="container">
+      <div class="container"  id="home">
         <h1>Lys.github.com</h1>
         <h2>My online resume</h2>
 
@@ -25,7 +26,37 @@
         </section>
       </div>
     </header>
-
+<!-- START THE NAVBAR -->
+    <div class="navbar-wrapper">
+      <div class="container1">
+      <div class="navwrapper">
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container1">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">欢迎</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#home">我的首页</a></li>
+                <li><a href="#works">我的作品</a></li>
+                <li><a href="#experience">我的经验</a></li>
+                <li><a href="#bookshelf">我的书架</a></li>
+                <li><a href="#resume">我的简历</a></li>
+                <li><a href="#contact">联系方式</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </div><!-- End Navbar -->
+      
+      </div>
+    </div> <!-- END NAVBAR -->
+    
     <div class="container">
       <section id="main_content">
         <h3>
@@ -38,7 +69,7 @@ $ git fetch origin
 $ git checkout gh-pages
 </code></pre>-->
 
-<div class="banner has-dots">
+<div class="banner has-dots" id="works">
 			<ul>
 				<li style="background-image: url('images/examlogin.jpg');">
 					<div class="inner">
@@ -107,6 +138,16 @@ $ git checkout gh-pages
 
 <p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
 
+<div id="resume">
+<table>
+<tr>
+<td>
+<img src="images/resume.jpg">
+</td>
+</tr>
+</table>
+</div>
+
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
@@ -120,7 +161,18 @@ $ git checkout gh-pages
 		<script src="./jquery.event.swipe.js"></script>
 
 		<script src="javascripts/unslider.min.js"></script>
+        <script src="javascripts/unslider.js"></script>
 		<script>
+		$(function() {
+    $('.banner').unslider({
+	speed: 500,               //  The speed to animate each slide (in milliseconds)
+	delay: 3000,              //  The delay between slide animations (in milliseconds)
+	complete: function() {},  //  A function that gets called after every slide animation
+	keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+	dots: false,               //  Display dot navigation
+	fluid: false              //  Support responsive design. May break non-responsive designs
+});
+});
 			if(window.chrome) {
 				$('.banner li').css('background-size', '100% 100%');
 			}
@@ -156,5 +208,41 @@ $ git checkout gh-pages
 
 			
 		</script>
+        
+        <!-- Bootstrap & Plugins core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+
+    <!-- ### IMPORTANT ### stickUp javascript file -->
+    <!-- ######################################### --> 
+    <script src="javascripts/stickUp.min.js"></script>
+    <!-- ######################################### -->
+
+    <!-- ### IMPORTANT ### stickUp options in use -->
+    <!-- ######################################## -->
+    <script type="text/javascript">
+              //initiating jQuery  
+              jQuery(function($) {
+                $(document).ready( function() {
+                  //为 '.navbar-wrapper' class 启用stickUp插件
+                  $('.navbar-wrapper').stickUp({
+                                parts: {
+                                  0:'home',
+                                  1:'works',
+                                  2:'experience',
+                                  3:'bookshelf',
+                                  4:'resume',
+                                  5:'contact',
+                                  
+                                },
+                                itemClass: 'menuItem',
+                                itemHover: 'active'
+                              });
+                });
+              });
+            
+            </script>
   </body>
 </html>
